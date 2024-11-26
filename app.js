@@ -9,6 +9,7 @@ const passport = require('passport');
 mongoose.set('strictQuery', true);
 const MongoStore = require('connect-mongo');
 const connectEnsureLogin = require('connect-ensure-login');
+const {roles} = require('./utils/constants')
 
 
 //initialisation
@@ -58,7 +59,7 @@ app.use((req, res, next)=>{
 app.use('/',require('./routes/index.route'));
 app.use('/auth',require('./routes/auth.route'));
 app.use('/user',connectEnsureLogin.ensureLoggedIn({redirectTo: '/auth/login'}),require('./routes/user.route'));
-
+app.use('/admin',connectEnsureLogin.ensureLoggedIn({redirectTo: '/auth/login'}),ensureAdmin, require('./routes/admin.route'));
 
 
 app.use((req, res, next)=>{
@@ -81,3 +82,22 @@ mongoose.connect(process.env.MONGO_URI, {
 app.listen(PORT, ()=> console.log(`🚀 on port ${PORT}`));
 
 }).catch(err => console.log(err.message));
+
+
+function ensureAdmin(req, res, next){
+    if(req.user.role === roles.admin){
+        next();
+    }else{
+        req.flash('warning', 'you are not Authorized to see this route');
+        res.redirect('/');
+    }
+}
+
+function ensureModerator(req, res, next){
+    if(req.user.role === roles.moderator){
+        next();
+    }else{
+        req.flash('warning', 'you are not Authorized to see this route');
+        res.redirect('/');
+    }
+}

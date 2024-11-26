@@ -1,0 +1,62 @@
+<%- include('./layouts/header') %>
+
+
+<h1 class="table">Manage Users</h1>
+
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>email</th>
+        <th  style="width: 100%;" >role</th>
+        <th>status</th>
+        <th class = "dell">delete</th>
+    </thead>
+    <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><a href="/admin/user/<%= user.id %>"><%= user.email %></a></td>
+            <td>
+                <form action="/admin/update-role" method="post" class="manage-user-form">
+                     <input type="hidden" name="id" value="<%= user.id %>" />
+                     <select name="role" id="role" >
+                        <option value="ADMIN" <%= user.role === 'ADMIN' ? 'selected' : '' %>>Admin</option>
+                        <option value="MODERATOR" <%= user.role === 'MODERATOR' ? 'selected' : '' %> >Moderator</option>
+                        <option value="CLIENT" <%= user.role === 'CLIENT' ? 'selected' : '' %> >Client</option>
+                     </select>
+                     <input type="submit" value="update" class ="mix">
+                </form>           
+            </td>
+            <td>
+                <div class ="manage-user-form" >
+                    <button 
+    id="toggleButton" 
+    style="background-color: green;color: white; padding: 10px 18px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold;"
+    onclick="toggleState(this)">
+    Active
+  </button>
+  
+  <script>
+    function toggleState(button) {
+      if (button.textContent.trim() === "Active") {
+        button.style.backgroundColor = "red";
+        button.textContent = "Inactive";
+      } else {
+        button.style.backgroundColor = "green";
+        button.textContent = "Active";
+      }
+    }
+  </script>
+
+                </div>
+            </td>
+            <td>
+                <div class ="delete-class"><button type="press" value="delete" class="poi" >🗑️</button></div>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include('./instructions.ejs') %>
+<%- include('./layouts/footer') %>

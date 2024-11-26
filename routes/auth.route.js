@@ -45,7 +45,7 @@ async(req, res, next ) =>{
             errors.array().forEach(error =>{
                 req.flash('error', error.msg)
             });
-            res.render('register',{email:req.body.email, messages: req.flash()});
+            res.render('register',{email:req.body.email, messages: req.flash});
             return;
         }
 
@@ -58,7 +58,7 @@ async(req, res, next ) =>{
         const user = new User(req.body)
         await user.save();
 
-        res.flash('success', '${user.email} registered succesfully, you can now login');
+        req.flash('success', `${user.email} registered succesfully, you can now login`);
         res.redirect('/auth/login');
         
     }

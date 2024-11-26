@@ -12,7 +12,7 @@ body {
   font-family: 'Space Mono', monospace;
   font-family: 'Open Sans', sans-serif;
 
-  max-width: 760px;
+  max-width: 55%;
   margin: auto;
   font-size: 1rem;
 }
@@ -68,7 +68,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  }
 
 form.lg-form {
   margin: 16px;
@@ -119,12 +119,13 @@ h1.table {
 
 table {
   margin-top: 32px;
-  min-width: 600px;
+  max-width:fit-content;
   border: none;
   border-spacing: 0;
   border: 4px solid #d1d5db;
   padding: 16px;
   border-radius: 16px;
+  text-align: center;
 }
 
 thead {
@@ -136,12 +137,13 @@ thead tr {
   border-radius: 8px;
   background-color: #db2777;
   overflow: hidden;
+  text-align:center;
 }
 
 thead th {
   padding: 8px 0;
-  text-align: left;
-  padding-left: 16px;
+  padding-left: 10px;
+  padding-right: 20px;
 }
 
 table th:first-child {
@@ -157,22 +159,42 @@ thead th:nth-child(1) {
 }
 
 tbody tr:hover {
-  /* background-color: #fdf2f8; */
+  background-color: #fdf2f8;
 }
 
 tbody tr td {
   padding: 8px 0;
+  box-sizing: border-box;
   margin: 8px 0;
+  text-align: left;
 }
+
+.mix{
+  text-align: center;
+  font-size: medium;  
+}
+
+.delete-class {
+  display: block;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.poi{
+  cursor: pointer;
+}
+
 
 .manage-user-form input[type='submit'] {
   background: transparent;
   color: #db2777;
   border: none;
   outline: none;
-  padding: 8px 16px;
+  padding: 8px 15px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 25px; 
+ 
 }
 
 .manage-user-form input[type='submit']:hover {
@@ -191,7 +213,7 @@ thead tr th:first-child,
 tbody tr td:first-child {
   width: 6em;
   min-width: 6em;
-  max-width: 6em;
+  max-width: 12em;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 8px;

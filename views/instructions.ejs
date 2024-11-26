@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles Permission Instructions</title>
+  <style>
+    
+    /* Container Styles */
+    .roles-container {
+    position: fixed;  
+    top: 100px; /* Padding from the top */
+    left: 20px; /* Aligned to the left edge */
+    width: 320px;
+    padding: 20px;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    /* Title Styling */
+    .roles-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #444;
+      text-align: center;
+    }
+
+    /* Role Items */
+    .role-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 4px solid #007bff;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .role-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #007bff;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .role-description {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Footer Note */
+    .roles-footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Role Permission Instructions Container -->
+  <div class="roles-container">
+    <div class="roles-title">Roles & Permissions</div>
+
+    <div class="role-item">
+      <span class="role-title">Client</span>
+      <span class="role-description">Can view and browse all public content. Cannot edit or contribute to any content.</span>
+    </div>
+
+    <div class="role-item">
+      <span class="role-title">Moderator</span>
+      <span class="role-description">Can create and edit their own content, suggest changes to public content, and leave comments. Responsible for reviewing and approving content, resolving disputes, and managing flagged content.</span>
+    </div>
+
+    <div class="role-item">
+      <span class="role-title">Admin</span>
+      <span class="role-description">Full control over content and user management, including adding or removing roles and permissions.</span>
+    </div>
+
+    <div class="roles-footer">Updated: November 2024</div>
+  </div>
+</body>
+</html>

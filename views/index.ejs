@@ -1,85 +1,236 @@
 <%- include('./layouts/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBAC System Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            margin: 0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: 100%;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #333;
+            margin: 0;
+        }
+        .header p {
+            color: #666;
+            font-size: 1rem;
+        }
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+            background: #db2777;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .nav ul li {
+            margin: 0;
+        }
+        .nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+        .nav ul li a:hover {
+            background-color: #0056b3;
+        }
+        .main section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            color: #333;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #db2777;
+        }
+        .list {
+            padding-left: 20px;
+        }
+        .list li {
+            margin-bottom: 5px;
+        }
+        .mermaid {
+            background: #f4f4f9;
+            border: 1px solid #ddd;
 
-<style>
-    .container {
-        width: 100%; /* Adjust the width as needed */
-        padding: 35px;
-        background-color: #fff;
-        border-radius: 10px;
-        border: 2px solid red; /* Red border on hover */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
-    }
-    
-</style>
-<h1 style="font-size: 50px";>Anup Ojha</h1>
-<br>
-        <div class="container">
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<header class="header">
+    <h1>Role-Based Access Control (RBAC) System</h1>
+    <p>Secure, user-friendly system for managing users, roles, and permissions.</p>
+</header>
+<body class="body">
+    <div class="container">
+        <nav class="nav">
+            <ul>
+                <li><a href="#problem-statement">Problem Statement</a></li>
+                <li><a href="#tech-stack">Technology Stack</a></li>
+                <li><a href="#roles-permissions">Roles & Permissions</a></li>
+                <li><a href="#functional-requirements">Functional Requirements</a></li>
+                <li><a href="#application-flow">Application Flow</a></li>
+                <li><a href="#security-practices">Security Practices</a></li>
+                <li><a href="#features">System Features</a></li>
+            </ul>
+        </nav>
 
-            <div class="header">
-                
-                <p>
-                    <a href="mailto:anup2001ojha@gmail.com">anup2001ojha@gmail.com</a> | 
-                    <a href="https://linkedin.com/in/anup-ojha-11819b217/" target="_blank">LinkedIn</a> | 
-                    <a href="https://github.com/Anup-Ojha" target="_blank">GitHub</a>
-                </p>
+        <main class="main">
+            <section id="problem-statement">
+                <h2 class="section-title">Problem Statement</h2>
+                <p>The RBAC system provides secure, user-friendly interfaces for managing users, roles, and permissions in a multi-role environment. Designed for event management, it ensures proper role definitions, data integrity, and secure user management.</p>
+            </section>
 
-            </div>
-<br>
-            <div class="section">
-                <h2>Education</h2>
-                <ul>
-                    <li><strong>Masters of Computer Applications</strong>, Vivekanand Education Society’s Institute Of Technology, Mumbai (GPA: 9.74)</li>
-                    <li><strong>Bachelor of Commerce (Computer Application)</strong>, Tirpude Institute of Management Education, Nagpur (GPA: 9.27)</li>
+            <section id="tech-stack">
+                <h2 class="section-title">Technology Stack</h2>
+                <ul class="list">
+                    <li><strong>Backend:</strong> Express.js, Node.js, MongoDB, Mongoose</li>
+                    <li><strong>NPM Packages:</strong> bcrypt, connect-flash, express-session, passport-local, etc.</li>
                 </ul>
-            </div>
-            <br>
-            <div class="section">
-                <h2>Projects</h2>
-                <ul>
-                    <li><strong>Code-Mapper:</strong> <a href="https://github.com/Anup-Ojha/-Roadmap-Website-For-Programming-Languages">Interactive Learning Platform</a> (Angular, Node.js, TypeScript)</li>
-                    <li><strong>Rep-Track:</strong> <a href="https://github.com/Anup-Ojha/RepTrack-ML-Based-Barbell-Exercise-Classifier">Exercise Classification System</a> (Python, ML)</li>
-                    <li><strong>Venue-Vista:</strong> <a href="https://github.com/Anup-Ojha/GUI-in-Python-for-Ground-and-Halls-Booking-System">GUI for Venue Booking</a> (Python, Tkinter, MySQL)</li>
-                </ul>
-            </div>
-            <br>
-            <div class="section">
-                <h2>Achievements</h2>
-                <ul>
-                    <li>96.73 percentile in MAH-CET (MCA), 2023</li>
-                    <li>Second Rank holder in graduation</li>
-                </ul>
-            </div>
-            <br>
-            <div class="section">
-                <h2>Volunteering</h2>
-                <ul>
-                    <li>Incharge of SoRT at VESIT Mumbai: Organized a beach cleaning drive.</li>
-                    <li>Newsletter Committee member at VESIT: Coordinated and published department newsletters.</li>
-                    <li>Secretary at TOP: Conducted community drives during COVID-19.</li>
-                </ul>
-            </div>
-            <br>
-            <div class="section">
-                <h2>Technical Skills</h2>
-                <ul>
-                    <li><strong>Languages:</strong> Java, Python, HTML/CSS, JavaScript</li>
-                    <li><strong>Frameworks:</strong> Angular, Node.js</li>
-                    <li><strong>Tools:</strong> Git, MySQL, Scikit-learn</li>
-                </ul>
-            </div>
-            <br>
-            <div class="section">
-                <h2>Certifications</h2>
-                <ul>
-                    <li>C++ Programming (Udemy)</li>
-                    <li>Mastering Data Structures (Udemy)</li>
-                    <li>Python for Data Science (NPTEL)</li>
-                </ul>
-            </div>
-        </div>
-        <br>
-        <br>
+            </section>
 
+            <section id="roles-permissions">
+                <h2 class="section-title">Roles, Status, and Permissions</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Permissions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Client</td>
+                            <td>Register, log in, view profile, log out.</td>
+                        </tr>
+                        <tr>
+                            <td>Moderator</td>
+                            <td>Manage system data, edit details. Cannot assign roles or delete users.</td>
+                        </tr>
+                        <tr>
+                            <td>Admin</td>
+                            <td>Manage users, assign roles, activate/deactivate users, and delete users.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
+            <section id="functional-requirements">
+                <h2 class="section-title">Functional Requirements</h2>
+                <ul class="list">
+                    <li><strong>User Management:</strong> Registration, Login, Role Assignment.</li>
+                    <li><strong>Role-Specific Functionalities:</strong> Client, Moderator, and Admin functionalities.</li>
+                    <li><strong>Error Handling:</strong> Centralized error management with `http-errors`.</li>
+                </ul>
+            </section>
 
-<%- include('./layouts/footer') %>
+            <section id="application-flow">
+                <h2 class="section-title" style="width: 520px;
+">Application Flow</h2>
+                <h3>User Flow Diagram</h3>
+                <div class="mermaid">
+                    flowchart TD
+                        A[Registration/Login] --> B[Client Dashboard]
+                        B -->|Access Event Info| C[Main Page]
+                        B -->|Logout| D[Logout Success]
+                        A -->|Moderator/Admin Login| E[Role Dashboard]
+                        E -->|Manage Data| F[Edit System Details]
+                        E -->|Admin Functions| G[Manage Users]
+                        G -->|Role Assignment| H[Assign Roles]
+                        G -->|Activate/Deactivate Users| I[Change User Status]
+                        G -->|Delete Users| J[Remove User from Database]
+                </div>
+
+                <h3>Flow Chart</h3>
+                <div class="mermaid">
+                    graph TD
+                        Start --> Registration[User Registration]
+                        Registration --> Login[User Login]
+                        Login --> Role[Role Assigned by Admin]
+                        Role --> Client[Client Features]
+                        Role --> Moderator[Moderator Features]
+                        Role --> Admin[Admin Features]
+                        Admin --> ManageUsers[User Management]
+                        ManageUsers --> AssignRoles[Assign Roles]
+                        ManageUsers --> ChangeStatus[Activate/Deactivate Users]
+                        ManageUsers --> DeleteUser[Delete Users]
+                </div>
+            </section>
+
+            <section id="security-practices">
+                <h2 class="section-title">Security Practices</h2>
+                <ul class="list">
+                    <li><strong>Password Encryption:</strong> Hashing and salting with bcrypt for secure storage.</li>
+                    <li><strong>Session Management:</strong> Stored securely in MongoDB using connect-mongo.</li>
+                    <li><strong>Input Validation:</strong> Sanitized user inputs with express-validator.</li>
+                    <li><strong>Error Handling:</strong> Centralized error management with http-errors.</li>
+                </ul>
+            </section>
+
+            <section id="features">
+                <h2 class="section-title">System Features</h2>
+                <ul class="list">
+                    <li><strong>Admin Dashboard:</strong> Manage users, assign roles, activate/deactivate users.</li>
+                    <li><strong>Moderator Dashboard:</strong> Edit event-related data, assist with messaging and comments.</li>
+                    <li><strong>Client Dashboard:</strong> Access event information and personal profile.</li>
+                </ul>
+            </section>
+
+            <section id="github">
+                <h2 class="section-title">GitHub Repository</h2>
+                <p>You can view the complete source code and setup instructions on the <a href="https://github.com/Anup-Ojha/RBAC_ASSESMENT_VRV_SECURITY" target="_blank">GitHub Repository</a>.</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 RBAC System | Developed by Anup Ojha</p>
+        </footer>
+    </div>
+</body>
+</html>
+

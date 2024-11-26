@@ -1,11 +1,23 @@
+
+
 <nav>
-    <h2>VRV</h2>
+    <h2 style="
+    font-family: 'Poppins', sans-serif; 
+    color: #3c2525; 
+    letter-spacing: 2px; 
+    -webkit-background-clip: text; 
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #eea6a6, 0 0 30px #585656;
+">VRV Systems</h2>
+
+
         <ul>
             <li><a href="/">Home</a></li>
             <% if (user) { %>
                 <li><a href="/user/profile">Profile</a></li>
-                <li><a href="/auth/logout">Logout</a></li>
+                <% if (user.role === 'ADMIN') { %>
                 <li><a href="/admin/users">Manage Users</a></li>
+                <% } %>
+                <li><a href="/auth/logout">Logout</a></li>
             <% } else { %>
                 <li><a href="/auth/register">Register</a></li>
                 <li><a href="/auth/login">Login</a></li>
